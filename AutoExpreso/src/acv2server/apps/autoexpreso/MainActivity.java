@@ -81,7 +81,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         return true;
     }
     
+    
+    
     @Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    	switch (item.getItemId())
+    	{
+    	
+    	case R.id.exit:
+    		this.finish();
+    		break;
+    	
+    	}
+		return super.onMenuItemSelected(featureId, item);
+	}
+
+	@Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // When the given tab is selected, switch to the corresponding page in
         // the ViewPager.
