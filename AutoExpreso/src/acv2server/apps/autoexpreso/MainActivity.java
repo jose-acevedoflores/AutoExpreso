@@ -1,5 +1,7 @@
 package acv2server.apps.autoexpreso;
 
+import acv2server.apps.autoexpreso.fragments.HistoryWindow;
+import acv2server.apps.autoexpreso.fragments.LoginBalanceWindow;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -7,16 +9,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -128,32 +123,34 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-			if(position == 2)
-			{
-				Fragment frag = new TestFragment();
-				Log.d("TEST","new fragment");
-				return frag;
+			Fragment frag = null;
+			switch (position) {
+			case 0:
+				frag = new LoginBalanceWindow();
+				break;
+			case 1:
+				frag = new HistoryWindow();
+				break;
+			default:
+				break;
 			}
-			Fragment fragment = new DummySectionFragment();
-			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-			fragment.setArguments(args);
-			return fragment;
+
+			return frag;
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 3;
+			// Show 2 total pages.
+			return 2;
 		}
 
 		@Override
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 			case 0:
-				return getString(R.string.title_section1);
+				return "Login";
 			case 1:
-				return getString(R.string.title_section2);
+				return "History";
 			case 2:
 				return "Test";
 			}
@@ -161,42 +158,5 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 	}
 
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-	public static class DummySectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		public static final String ARG_SECTION_NUMBER = "section_number";
-
-		public DummySectionFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			// Create a new TextView and set its text to the fragment's section
-			// number argument value.
-			TextView textView = new TextView(getActivity());
-			textView.setGravity(Gravity.CENTER);
-			textView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-			return textView;
-		}
-	}
-
-	public static class TestFragment extends Fragment{
-		
-		public TestFragment()
-		{}
-		
-		public View onCreateView(LayoutInflater inflater, ViewGroup container , Bundle savedInstanceState)
-		{
-			//Ojo: attachToRoot tiene que ser false si no tira un error ?????
-			return inflater.inflate(R.layout.login_balance, container, false);
-		}
-	}
-
+	
 }
