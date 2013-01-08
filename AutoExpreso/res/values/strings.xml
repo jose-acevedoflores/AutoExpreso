@@ -2,6 +2,9 @@
 <resources>
 
     <string name="app_name">AutoExpreso</string>
+    
+    <string name="username">Username</string>
+    <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="hisotry">History</string>
     <string name="menu_settings">Settings</string>

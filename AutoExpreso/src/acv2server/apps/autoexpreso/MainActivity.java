@@ -10,9 +10,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -69,6 +69,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+
+		//TODO		
+		//webView.loadUrl("https://www.autoexpreso.com/Login.aspx");
 
 	}
 
@@ -128,8 +131,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			switch (position) {
 			case 0:
 				frag = new MainWindow();
-				WebView webView = (WebView) findViewById(R.id.webview);
-				webView.loadUrl("https://www.autoexpreso.com/Login.aspx");
 				break;
 			case 1:
 				frag = new HistoryWindow();
@@ -161,5 +162,5 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 	}
 
-	
+
 }
