@@ -2,6 +2,7 @@ package acv2server.apps.autoexpreso;
 
 import acv2server.apps.autoexpreso.fragments.HistoryWindow;
 import acv2server.apps.autoexpreso.fragments.MainWindow;
+import acv2server.apps.autoexpreso.fragments.OnlineWindow;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -70,8 +71,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 		}
 
 	
-		//TODO		
-		//webView.loadUrl("https://www.autoexpreso.com/Login.aspx");
 
 	}
 
@@ -135,6 +134,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			case 1:
 				frag = new HistoryWindow();
 				break;
+			case 2:
+				frag = new OnlineWindow();
+				break;
 			default:
 				break;
 			}
@@ -144,8 +146,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 		@Override
 		public int getCount() {
-			// Show 2 total pages.
-			return 2;
+			// Show 3 total pages.
+			return 3;
 		}
 
 		@Override
@@ -156,7 +158,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			case 1:
 				return "History";
 			case 2:
-				return "Test";
+				return "Online UI";
 			}
 			return null;
 		}

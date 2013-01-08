@@ -20,7 +20,7 @@ public class MainWindow extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container , Bundle savedInstanceState)
 	{	
 		//Ojo: attachToRoot tiene que ser false si no tira un error ?????
-		View root =inflater.inflate(R.layout.online_view, container, false);
+		View root =inflater.inflate(R.layout.mod_online_view, container, false);
 		
 		Button b = (Button) root.findViewById(R.id.bLogin);
 		
