@@ -1,7 +1,7 @@
 package acv2server.apps.autoexpreso;
 
 import acv2server.apps.autoexpreso.fragments.HistoryWindow;
-import acv2server.apps.autoexpreso.fragments.LoginBalanceWindow;
+import acv2server.apps.autoexpreso.fragments.MainWindow;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -126,7 +126,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			Fragment frag = null;
 			switch (position) {
 			case 0:
-				frag = new LoginBalanceWindow();
+				frag = new MainWindow();
 				break;
 			case 1:
 				frag = new HistoryWindow();

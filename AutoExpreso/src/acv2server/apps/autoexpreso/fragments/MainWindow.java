@@ -12,11 +12,11 @@ import android.view.ViewGroup;
  * @author joseacevedo
  *
  */
-public class LoginBalanceWindow extends Fragment {
+public class MainWindow extends Fragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container , Bundle savedInstanceState)
 	{
 		//Ojo: attachToRoot tiene que ser false si no tira un error ?????
-		return inflater.inflate(R.layout.login_balance, container, false);
+		return inflater.inflate(R.layout.main_window, container, false);
 	}
 }
