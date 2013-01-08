@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -15,9 +16,22 @@ import android.view.ViewGroup;
  */
 public class MainWindow extends Fragment {
 
+
 	public View onCreateView(LayoutInflater inflater, ViewGroup container , Bundle savedInstanceState)
 	{	
 		//Ojo: attachToRoot tiene que ser false si no tira un error ?????
-		return inflater.inflate(R.layout.online_view, container, false);
-	}	
+		View root =inflater.inflate(R.layout.online_view, container, false);
+		
+		Button b = (Button) root.findViewById(R.id.bLogin);
+		
+		b.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+			}
+		});
+		
+		return root;
+	}
 }
