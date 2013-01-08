@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -127,6 +128,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 			switch (position) {
 			case 0:
 				frag = new MainWindow();
+				WebView webView = (WebView) findViewById(R.id.webview);
+				webView.loadUrl("https://www.autoexpreso.com/Login.aspx");
 				break;
 			case 1:
 				frag = new HistoryWindow();
