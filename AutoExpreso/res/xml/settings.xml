@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="Account" >
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="username_preference"
+            android:summary="Set the username for the account"
+            android:title="Set Username" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="password_preference"
+            android:summary="Set the Password for the account"
+            android:title="Set Password" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Website" >
+        <EditTextPreference
+            android:defaultValue="https://m.autoexpreso.com/Login/Login"
+            android:key="website_url"
+            android:summary="URL for the autoexpreso login page"
+            android:title="Autoexpreso URL" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

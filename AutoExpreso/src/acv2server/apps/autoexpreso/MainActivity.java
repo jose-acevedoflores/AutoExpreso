@@ -5,6 +5,7 @@ import acv2server.apps.autoexpreso.fragments.MainWindow;
 import acv2server.apps.autoexpreso.fragments.OnlineWindow;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -70,7 +71,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 					.setTabListener(this));
 		}
 
-	
+
 
 	}
 
@@ -87,7 +88,10 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		switch (item.getItemId())
 		{
-
+		case R.id.menu_settings:
+			Intent i = new Intent("acv2server.apps.autoexpreso.SettingsActivity");
+			this.startActivity(i);
+			break;
 		case R.id.exit:
 			this.finish();
 			break;

@@ -1,7 +1,10 @@
 package acv2server.apps.autoexpreso.fragments;
 
 import acv2server.apps.autoexpreso.R;
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +14,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class OnlineWindow extends Fragment {
+@SuppressLint("SetJavaScriptEnabled") public class OnlineWindow extends Fragment {
 
 	private WebView webView;
 
@@ -30,8 +33,11 @@ public class OnlineWindow extends Fragment {
 
 		Log.d("DEBUG", "WebView init");
 
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(container.getContext());
+		String website = prefs.getString("website_url", "https://m.autoexpreso.com/Login/Login");
+		Log.d("DEBUG", "Autoexpreso URL: "+website );
 
-		webView.loadUrl("https://m.autoexpreso.com/Login/Login");
+		webView.loadUrl(website);
 
 		return root;
 	}

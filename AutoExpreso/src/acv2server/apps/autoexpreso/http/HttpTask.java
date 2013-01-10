@@ -19,8 +19,8 @@ public class HttpTask extends AsyncTask<String, Integer, String> {
 		// params is an array that contains the url of AutoExpreso in [0] , username in [1] and password in [2] 
 		
 		String urlS = params[0];
-		String username = params[1];
-		String password = params[2];
+		//String username = params[1];
+		//String password = params[2];
 
 		try{
 			URL url = new URL(urlS);
