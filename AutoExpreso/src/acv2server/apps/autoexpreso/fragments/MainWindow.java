@@ -2,7 +2,10 @@ package acv2server.apps.autoexpreso.fragments;
 
 import acv2server.apps.autoexpreso.R;
 import acv2server.apps.autoexpreso.http.HttpTask;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -45,11 +48,33 @@ public class MainWindow extends Fragment {
 				}
 				else{
 					//TODO Check if connection is available
-					new HttpTask().execute(url, username, password);
+					if(isInternetAvailable(container.getContext()) )
+						new HttpTask().execute(url, username, password);
+					else
+					{
+						Toast t = Toast.makeText(container.getContext(), "No connection available", Toast.LENGTH_LONG);
+						t.show();
+					}
 				}
 			}
 		});
 
 		return root;
+	}
+	
+	/**
+	 * 
+	 * @param context the context of this ??? 
+	 * @return true if it's connected, false otherwise.
+	 */
+	private boolean isInternetAvailable(Context context)
+	{
+		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+
+		if (networkInfo != null && networkInfo.isConnected()) {
+			return true;
+		}
+		return false;
 	}
 }
