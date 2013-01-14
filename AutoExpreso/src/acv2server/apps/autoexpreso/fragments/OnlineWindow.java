@@ -23,7 +23,7 @@ import android.webkit.WebViewClient;
 		//Ojo: attachToRoot tiene que ser false si no tira un error ?????
 		View root =inflater.inflate(R.layout.normal_online_view, container, false);
 
-
+		
 		webView = (WebView) root.findViewById(R.id.wv);
 
 		WebSettings wb = webView.getSettings();
