@@ -12,6 +12,10 @@
             android:key="password_preference"
             android:summary="Set the Password for the account"
             android:title="Set Password" />
+
+        <CheckBoxPreference
+            android:key="keep_user_logged"
+            android:title="Keep User Logged In" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Website" >
         <EditTextPreference
