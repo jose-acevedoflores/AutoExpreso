@@ -1,6 +1,7 @@
 package acv2server.apps.autoexpreso.fragments;
 
 import acv2server.apps.autoexpreso.R;
+import acv2server.apps.autoexpreso.http.TestWebViewClient;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 @SuppressLint("SetJavaScriptEnabled") public class OnlineWindow extends Fragment {
@@ -33,16 +33,21 @@ import android.widget.Toast;
 
 			WebSettings wb = webView.getSettings();
 			wb.setJavaScriptEnabled(true);
-
-			webView.setWebViewClient(new WebViewClient());
-
-			Log.d("DEBUG", "WebView init");
+			wb.setSavePassword(false);
+			wb.setSaveFormData(false);
 
 			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(container.getContext());
 			String website = prefs.getString("website_url", "https://m.autoexpreso.com/Login/Login");
+			String username = prefs.getString("username_preference", "");
+			String password = prefs.getString("password_preference", "");
+			
+			webView.setWebViewClient(new TestWebViewClient(username, password, website));
+			Log.d("DEBUG", "WebView init");
+
 			Log.d("DEBUG", "Autoexpreso URL: "+website );
 
 			webView.loadUrl(website);
+			
 		}
 		else
 		{

@@ -70,6 +70,7 @@ public class MainWindow extends Fragment {
 				}
 				String url = prefs.getString("website_url", "https://m.autoexpreso.com/Login/Login");
 
+				//Try to authenticate with the user given credentials.
 				if(username.equals("") || password.equals(""))
 				{
 					Toast t = Toast.makeText(container.getContext(), "Can't leave username or password empty", Toast.LENGTH_LONG);
